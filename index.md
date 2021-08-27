@@ -2,37 +2,38 @@
 title: Metrical Positional Encoding
 
 midi_files:
+  - 00049.mid|Never Gonna Give You Up (Rick Astley)
+  - 00353.mid|Stayin' Alive (Bee Gees)
+  - 00253.mid|Spain (Chick Corea)
+  - 00037.mid|Different Drum (The Stone Poneys)
+  - 00109.mid|Since I've Been Loving You (Led Zeppelin)
+  - 00152.mid|Nowhere Man (The Beatles)
+  - 00220.mid|Let's Get Physical (Olivia Newton-John)
+  - 00249.mid|Dirty Love (Frank Zappa)
+  - 00242.mid|Hotel California (Eagles)
+  - 00254.mid|A Whiter Shade Of Pale (Procol Harum)
+  - 00129.mid
+  - 00355.mid
+  - 00038.mid
   - 00091.mid
   - 00057.mid
-  - 00049.mid
-  - 00353.mid (Stayin' Alive)
   - 00162.mid
   - 00010.mid
-  - 00253.mid (Spain)
   - 00020.mid
   - 00033.mid
-  - 00037.mid
-  - 00038.mid
   - 00043.mid
   - 00047.mid
-  - 00109.mid (Since I've Been Loving You)
-  - 00129.mid
-  - 00152.mid (Nowhere Man)
   - 00166.mid
-  - 00220.mid (Let's Get Physical)
-  - 00242.mid
-  - 00249.mid (Dirty Love)
-  - 00254.mid
   - 00340.mid
-  - 00355.mid
   - 00358.mid
 ---
 
 ## Examples
 
 {% for item in page.midi_files %}
-{% assign f = item | split: " " | first %}
-### {{ item }}
+{% assign f = item | split: "|" | first %}
+{% assign name = item | split: "|" | last %}
+### {{ name | default: f }}
 <div class="tabbed-midi-player">
 <div class="tabs">
   {% comment %}<a href="#" data-midi-url="midi/prompt/{{ f }}" class="selected">Prompt</a>{% endcomment %}
