@@ -32,7 +32,7 @@ midi_files:
 
 We give some example continuations below. We recommend listening with headphones.
 All examples are played at 120 BPM.
-The prompt which was input to the model is delimited by the thick vertical line.
+The prompt which was input to the models is delimited by the thick vertical line.
 &Delta; stands for &Delta;-encoding, BR for beat-relative encoding.
 
 
