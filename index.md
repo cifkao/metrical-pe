@@ -31,6 +31,7 @@ midi_files:
 ## Examples
 
 We give some example continuations below. The prompt which was input to the model is delimited by the thick vertical line.
+All examples are played at 120 BPM.
 &Delta; stands for &Delta;-encoding, BR for beat-relative encoding.
 
 
