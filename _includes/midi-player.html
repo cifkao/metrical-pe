@@ -1,0 +1,2 @@
+<midi-visualizer src="{{ include.src | relative_url }}" id="visualizer-{{ include.src | slugify "ascii" }}"></midi-visualizer>
+<midi-player src="{{ include.src | relative_url }}" visualizer="#visualizer-{{ include.src | slugify "ascii" }}" sound-font></midi-player>

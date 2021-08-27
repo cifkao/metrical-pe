@@ -1,0 +1,27 @@
+theme: jekyll-theme-cayman
+
+paper_url: "https://arxiv.org/abs/2105.08399"
+github:
+  is_project_page: false
+
+markdown: kramdown
+kramdown:
+  math_engine: katex
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: "midi/lin_trans_tt*"
+    values:
+      midi: true
+
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile.lock
+  - package.json
+  - yarn.lock
+  - yarn-error.log

@@ -1,0 +1,167 @@
+.main-content {
+  /* Prevent overflow on mobile, see https://stackoverflow.com/questions/14270084/overflow-xhidden-doesnt-prevent-content-from-overflowing-in-mobile-browsers */
+  position: relative;
+  overflow-x: hidden;
+}
+
+header {
+  .btn {
+    color: white;
+    border-color: white;
+    background: transparent;
+    transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+
+    &:hover {
+      color: black;
+      text-decoration: none;
+      background-color: white;
+      border-color: white;
+    }
+
+    font-size: 1.2rem;
+
+    i.fa {
+      margin-right: 0.2em;
+    }
+  }
+}
+
+.badges > * {
+  display: inline-block;
+}
+
+
+$visualizer-bg: #fefefe;
+$visualizer-beat-line-color: #aaaaaa77;
+$visualizer-prompt-bg: #efefef;
+$visualizer-prompt-line-color: #aaaaaa;
+$player-bottom-bg: #e0e0e0;
+$player-border-color: #e0e0e0;
+$instrument-colors: #007bff, #dc3545, #20c997, #6610f2, #ffc107, #e83e8c, #17a2b8, #fd7e14, #28a745;
+
+midi-player, midi-visualizer {
+  display: block;
+  width: inherit;
+  margin: 0;
+}
+
+midi-visualizer {
+  border-radius: 10px 10px 0 0;
+  border: 1px solid $player-border-color;
+  border-bottom: none;
+
+  .piano-roll-visualizer {
+    width: inherit;
+    overflow: auto;
+
+    svg {
+      background: 
+        linear-gradient(90deg, $visualizer-beat-line-color 1px, transparent 1px, transparent 30px) left/30px repeat,
+        linear-gradient(90deg, transparent 0px, $visualizer-prompt-bg 239px, $visualizer-prompt-line-color 239px, $visualizer-prompt-line-color 241px, transparent 241px) repeat-y,
+        $visualizer-bg;
+
+      rect.note {
+        opacity: calc(min(1, (var(--midi-velocity) + 30) / 128) * 0.75);
+
+        &.active {
+          opacity: calc(min(1, (var(--midi-velocity) + 30) / 128) * 0.9);
+          stroke: black;
+          stroke-width: 0.75;
+          stroke-opacity: 0.75;
+        }
+      }
+
+      @for $i from 0 to 200 {
+        $color: nth($instrument-colors, ($i % length($instrument-colors)) + 1);
+        rect.note[data-instrument="#{$i}"] {
+          fill: darken(saturate($color, 40%), 10%);
+        }
+      }
+    }
+  }
+
+  &.loading .piano-roll-visualizer {
+    filter: grayscale(60%);
+    opacity: 0.5;
+  }
+}
+
+midi-player {
+  &::part(control-panel) {
+    border-radius: 0 0 10px 10px;
+    border: 1px solid $player-border-color;
+    border-top: none;
+    background: linear-gradient($visualizer-bg, $player-bottom-bg);
+  }
+}
+
+.tabbed-midi-player {
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+
+  .tabs{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
+    border-bottom: 1px solid $player-border-color;
+
+    a {
+      display: block;
+      padding: 1rem 1.5rem;
+      margin-bottom: -1px;
+      border: 1px solid transparent;
+      border-bottom-color: $player-border-color;
+      border-radius: 5px 5px 0 0;
+    }
+
+    a:hover, a:active {
+      text-decoration: none;
+      border-color: #f0f0f0;
+      border-bottom-color: $player-border-color;
+    }
+
+    a.selected {
+      color: $body-text-color;
+      background: $visualizer-bg;
+      border-color: $player-border-color;
+      border-bottom-color: $visualizer-bg;
+    }
+  }
+
+  midi-visualizer {
+    border-top: none;
+    border-radius: 0;
+  }
+
+  @media screen and (max-width: 50rem) {
+    .tabs {
+      margin-bottom: 7px;
+      border: none;
+
+      a {
+        padding: 0.75rem 1.2rem;
+        box-sizing: content-box;
+        min-width: 1.1em;
+        text-align: center;
+        margin-right: 5px;
+        border: 1px solid $player-border-color;
+        border-radius: 5px 5px;
+      }
+
+      a:hover, a:active {
+        border-color: darken($player-border-color, 15%);
+      }
+
+      a.selected {
+        color: white;
+        background: $body-link-color;
+        border-color: $body-link-color;
+      }
+    }
+
+    midi-visualizer {
+      border-top: 1px solid $player-border-color;
+      border-radius: 5px;
+    }
+  }
+}
