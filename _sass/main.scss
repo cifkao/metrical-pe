@@ -32,7 +32,8 @@ header {
 
 
 $visualizer-bg: #fefefe;
-$visualizer-beat-line-color: #aaaaaa77;
+$visualizer-beat-color-1: #aaaaaa77;
+$visualizer-beat-color-2: #aaaaaa66;
 $visualizer-prompt-bg: #efefef;
 $visualizer-prompt-line-color: #aaaaaa;
 $player-bottom-bg: #e0e0e0;
@@ -56,7 +57,7 @@ midi-visualizer {
 
     svg {
       background: 
-        linear-gradient(90deg, $visualizer-beat-line-color 1px, transparent 1px, transparent 30px) left/30px repeat,
+        linear-gradient(90deg, $visualizer-beat-color-1 1px, transparent 1px, transparent 15px, $visualizer-beat-color-2 16px, transparent 16px) left/30px repeat,
         linear-gradient(90deg, transparent 0px, $visualizer-prompt-bg 239px, $visualizer-prompt-line-color 239px, $visualizer-prompt-line-color 241px, transparent 241px) repeat-y,
         $visualizer-bg;
 
