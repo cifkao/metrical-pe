@@ -2,7 +2,7 @@
 title: Metrical Positional Encoding
 
 midi_files:
-  - 00049.mid|<img src="https://i.giphy.com/media/Ju7l5y9osyymQ/giphy.webp" width="150px">
+  - 00049.mid|<a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><img src="https://i.giphy.com/media/Ju7l5y9osyymQ/giphy.webp" width="150px"></a>
   - 00353.mid|Stayin' Alive (Bee Gees)
   - 00253.mid|Spain (Chick Corea)
   - 00037.mid|Different Drum (The Stone Poneys)
