@@ -30,6 +30,10 @@ midi_files:
 
 ## Examples
 
+We give some example continuations below. The prompt which was input to the model is delimited by the thick vertical line.
+&Delta; stands for &Delta;-encoding, BR for beat-relative encoding.
+
+
 {% for item in page.midi_files %}
 {% assign f = item | split: "|" | first %}
 {% assign name = item | split: "|" | last %}
