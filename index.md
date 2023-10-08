@@ -28,6 +28,8 @@ midi_files:
   - 00358.mid
 ---
 
+This page accompanies [Section 5.4](https://theses.hal.science/tel-03499991/document#Metrical%20positional%20encoding) in my PhD thesis, [_Deep learning methods for music style transfer_](https://theses.hal.science/tel-03499991/).
+
 ## Examples
 
 We give some example continuations below. We recommend listening with headphones.
